@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+h1{
+    text-align:center; 
+    font-size:250%;
+    color: rgb(9, 12, 169);
+    font-family: "Comic Sans MS";
+    
+}
+h2{
+    text-align:center; 
+}
+
+/*a~文字強調*/
+a{
+    font-size:120%;
+    font-weight:normal;
+}
+/*全体背景*/
+body {
+    background-image: url("img/背景.jpg");
+    background-size: cover;
+  }
+/*汎用中央寄せ*/
+  .example{
+    text-align: center;
+  }
+  /*画像データ設定*/
+  .ph{
+    float:left;
+    margin: right px;;
+  }
+  .data{
+    float: center;
+  }
