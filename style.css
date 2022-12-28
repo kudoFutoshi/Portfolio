@@ -22,9 +22,9 @@ body {
     background-size: cover;
   }
 /*汎用中央寄せ*/
-  .example{
-    text-align: center;
-  }
+div.center {
+  text-align: center;
+}
   /*画像データ設定*/
   .ph{
     float:left;
