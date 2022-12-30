@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
-/*ページ全体設定*/
+
 body {
   width: 1124px;
-  margin: 40px auto 40px;/*外側余白　上20　左右自動調整　下40*/
+  margin: 40px auto 40px;
  
   }
 
   #wrap{
-    padding: 20px 0px 40px;/*内側余白　上20　左右0　下40*/
+    padding: 20px 0px 40px;/
   }
 
-/*ページタイトル設定*/  
+
 .frame_h1{
   background-color: #faf6c2;
 }
@@ -62,7 +62,7 @@ h1{
     object-fit: cover;
     height: 200px;
     width: 100%;
-    background-image:url(https://github.com/kudoFutoshi/Portfolio/blob/main/cherry-blossom_00041.jpg);
+    background-image:url(cherry-blossom_00041.jpg);
     background-repeat:no-repeat;
   }
   
