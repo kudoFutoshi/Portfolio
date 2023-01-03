@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<Resource driverClassName="com.mysql.jdbc.Driver"
+initialSize="1"
+maxIdle="1"
+maxWaitMillis="-1"
+name="jdbc/localDB"
+type="javax.sql.DataSource"
+url="jdbc:mysql://127.0.0.1:3306/port"
+username="root"
+password="root"
+defaultAutoCommit="false"/>
+</Context>
