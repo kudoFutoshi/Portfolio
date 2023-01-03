@@ -1,27 +1,34 @@
 @charset "UTF-8";
 
-
+/*ページ全体設定*/
 body {
   width: 1124px;
-  margin: 40px auto 40px;
-  background-color: #e1f7d7;
-  }
+  height: 1124px;
+  margin: 40px auto 40px;/*外側余白　上20　左右自動調整　下40*/
+  background: linear-gradient(-225deg, #2c93d8 0%, #a7a3e4 56%, #e8a1aa 100%);
+  overflow: hidden;  
+}
 
   #wrap{
-    padding: 20px 0px 40px;/
+    padding: 20px 0px 40px;/*内側余白　上20　左右0　下40*/
   }
 
+  
 
+
+/*ページタイトル設定  
 .frame_h1{
   background-color: #faf6c2;
-}
+  border-left: #facbf4 5px solid;
+  border-bottom: #facbf4 2px solid;
+}*/
 
 h1{
     padding:10px 0px 0px 0px ;
-    font-size: 200%;
+    font-size: 250%;
     text-align: center;
     font-family: "Comic Sans MS";
-    color: rgb(9, 12, 169);
+    color: rgb(255, 255, 255);
     height: 50px;
     font-weight:bold;
 }
@@ -33,8 +40,9 @@ h1{
   font-size: 150%;
   margin-top: 20px; 
   padding: 0px,10px,10px,0px;
-  background-color: #fff0fb;
+  background: linear-gradient( #fbf965 0%,#eff399 56%, #ffffff 100%);
   height: 130px;  
+  border-radius:  25px;
 }
 
 .frame_lead p{
@@ -50,7 +58,6 @@ h1{
     font-weight:normal;
 }
 /*汎用文字強調2*/
-
 .big2{
   font-size:130%;
   font-weight:bold;
@@ -64,6 +71,7 @@ h1{
     width: 100%;
     background-image:url(cherry-blossom_00041.jpg);
     background-repeat:no-repeat;
+    border-radius:  25px;
   }
   
   .menu {
@@ -72,5 +80,11 @@ h1{
     list-style: none;
 }
 .menu-item {
-    margin: 0 25px;
+    margin: 0 30px;
 }
+
+/*枠内(table)設定*/
+thead{
+  background-color: #ffffff;
+}
+
