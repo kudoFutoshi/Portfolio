@@ -22,7 +22,7 @@ public class AllSearchServlet extends HttpServlet {
 		try (TodoDAO dao = new TodoDAO()) {
 			// todo_listテーブルの全データを取得し、リクエスト属性へ格納する
 			List<Todo> list = dao.todoList();
-			request.setAttribute("todoList", list);
+			request.setAttribute("TodoList", list);
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}

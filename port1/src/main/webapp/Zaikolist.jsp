@@ -4,20 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-type" content="text/html; charset="UTF-8"> 
+
 <title>検索結果</title>
 </head>
 <body>
 	<h1>検索結果</h1>
-<%
-	// ログインユーザ名の取得
-	String loginUser = (String)request.getUserPrincipal().getName();
-	session.setAttribute("loginUser", loginUser);
-%>
-<p>ログインユーザ：${ loginUser }</p>
+
 	
 	<table border="1">
 		<tr>
+		    <th>番号</th>
 			<th>商品CD</th>
 			<th>商品ロット</th>
 			<th>商品名</th>
@@ -28,7 +25,7 @@
 			<th>在庫調整</th>
 		</tr>
 		<%
-		List<Todo> todos = (ArrayList<Todo>)request.getAttribute("list");
+		List<Todo> todos = (ArrayList<Todo>)request.getAttribute("TodoList");
 				if (todos != null) {
 			Todo todo;
 			for (int i = 0; i < todos.size(); i++) {
@@ -43,15 +40,15 @@
 			<td><%=todo.getShouhin_quantity()%></td>
 			<td><%=todo.getSerial_number()%></td>
 			<td><%=todo.getTorokubi()%></td>
-			<td><a herf="ZaikoDetailServlet?id=<%=todo.getShouhin_id()%>">在庫調整へ</a></td>
+			<td><a href="ZaikoDetailServlet?id=<%=todo.getShouhin_id()%>">在庫調整へ</a></td>
 		</tr>
 		<%
 			}
 		}
 		%>
-		<a herf="ZaikoSelect.html"><h4>在庫検索へ戻る</h4></a><br>
-		<a herf="Top.html"><h4>メインメニューへ戻る</h4></a>
-	</table>
+		</table>
+		<a href="ZaikoSelect.html">在庫検索へ戻る</a><br>
+		<a href="Top.html">メインメニューへ戻る</a> 
 	
 </body>
 </html>

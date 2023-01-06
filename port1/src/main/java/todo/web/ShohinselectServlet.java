@@ -16,13 +16,13 @@ public class ShohinselectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try (TodoDAO dao = new TodoDAO()) {
-			// リクエストパラメータを受け取る
+			
 			String shouhin_id = request.getParameter("shouhin_id");
-			// daoに検索処理を依頼
+			
 			List<Todo> resultList  = dao.select(shouhin_id);
-			// 検索結果をリクエスト属性へ格納
-			request.setAttribute("list", resultList);
-			// 検索結果を表示するlist.jspへフォワード
+			
+			request.setAttribute("TodoList", resultList);
+			
 			request.getRequestDispatcher("/Zaikolist.jsp").forward(request, response);
 		} catch (Exception e) {
 			throw new ServletException(e);

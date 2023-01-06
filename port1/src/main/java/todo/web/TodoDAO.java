@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TodoDAO extends DAO {
 
-	/*商品コードで検索*/
+	/*商品番号で検索*/
 	public List<Todo> select(String shouhin_id) throws Exception{
 		
 		Connection connection = getConnection();
@@ -40,17 +40,18 @@ public class TodoDAO extends DAO {
 	}
 	
 	
-	/* todo_listテーブルの全データを取得する */
+	/* Alllistテーブルの全データを取得する */
 	public List<Todo> todoList() throws Exception {
 		List<Todo> returnList = new ArrayList<Todo>();
 
-		String sql = "SELECT shouhin_id,shohin_coode , shohin_lot , shohin_mei , shohin_bunrui , shouhin_quantity , serial_number , torokubi  ORDER BY shouhin_id";
+		String sql = "SELECT * FROM shohin ";
+				
 
-		// プリペアステートメントを取得し、実行SQLを渡す
+		
 		PreparedStatement statement = getPreparedStatement(sql);
-		// SQLを実行してその結果を取得する
+		
 		ResultSet rs = statement.executeQuery();
-		// 検索結果の行数分フェッチを行い、取得結果をTodoクラスのインスタンスdtoのリストに格納する
+		
 		while (rs.next()) {
 			Todo dto = new Todo();
 			dto.setShouhin_id(rs.getInt("shouhin_id"));
@@ -68,17 +69,17 @@ public class TodoDAO extends DAO {
 
 	/* 指定されたタスク番号のタスクデータを取得する */
 	public Todo detail(int shouhin_id) throws Exception {
-		String sql = "SELECT shouhin_id,shohin_coode , shohin_lot , shohin_mei , shohin_bunrui , shouhin_quantity , serial_number , torokubi   where shouhin_id = ?";
+		String sql = "SELECT * FROM shohin, shouhin_id,shohin_coode , shohin_lot , shohin_mei , shohin_bunrui , shouhin_quantity , serial_number , torokubi   where shouhin_id = ?";
 
-		// プリペアステートメントを取得し、実行SQLを渡す
+		
 		PreparedStatement statement = getPreparedStatement(sql);
 		statement.setInt(1, shouhin_id);
-		// SQLを実行してその結果を取得する
+		
 		ResultSet rs = statement.executeQuery();
-		// 検索結果をTodoクラスのインスタンスdtoへ格納する
+		
 		Todo dto = new Todo();
 		while (rs.next()) {
-			// クエリー結果をDTOへ格納
+			
 			dto.setShouhin_id(rs.getInt("shouhin_id"));
 			dto.setShohin_coode(rs.getString("shohin_coode"));
 			dto.setShohin_lot(rs.getString("shohin_lot"));
@@ -95,17 +96,17 @@ public class TodoDAO extends DAO {
 	public int delete(int shouhin_id) throws Exception {
 		String sql = "DELETE FROM shohin where shouhin_id = ?";
 
-		// SQLを実行してその結果を取得する
+		
 		int result = 0;
 		try {
-			// プリペアステートメントを取得し、実行SQLを渡す
+			
 			PreparedStatement statement = getPreparedStatement(sql);
 			statement.setInt(1, shouhin_id);
 			result = statement.executeUpdate();
-			// コミットを行う
+			
 			super.commit();
 		} catch (Exception e) {
-			// 例外の場合ロールバックを行いスローした例外はデータオブジェクトから脱出する
+			
 			super.rollback();
 			throw e;
 		}
@@ -119,13 +120,13 @@ public class TodoDAO extends DAO {
 		// SQLを実行してその結果を取得する
 		int result = 0;
 		try {
-			// プリペアステートメントを取得し、実行SQLを渡す
+			
 			PreparedStatement statement = getPreparedStatement(sql);
 			result = statement.executeUpdate();
-			// コミットを行う
+			
 			super.commit();
 		} catch (Exception e) {
-			// 例外の場合ロールバックを行い、スローした例外はデータオブジェクトから脱出する
+			
 			super.rollback();
 			throw e;
 		}
@@ -139,7 +140,7 @@ public class TodoDAO extends DAO {
 		// SQLを実行してその結果を取得する
 		int result = 0;
 		try {
-			// プリペアステートメントを取得し、実行SQLを渡す
+			
 			PreparedStatement statement = getPreparedStatement(sql);
 			statement.setInt(1, dto.getShouhin_id());
 			statement.setString(2, dto.getShohin_coode());
@@ -150,10 +151,10 @@ public class TodoDAO extends DAO {
 			statement.setInt(7, dto.getSerial_number());
 			statement.setString(8, dto.getTorokubi());
 			result = statement.executeUpdate();
-			// コミットを行う
+			
 			super.commit();
 		} catch (Exception e) {
-			// 例外の場合ロールバックを行いスローした例外はデータオブジェクトから脱出する
+			
 			super.rollback();
 			throw e;
 		}
@@ -164,10 +165,10 @@ public class TodoDAO extends DAO {
 	public int registerUpdate(Todo dto) throws Exception {
 		String sql = "UPDATE shohin SET shouhin_id = ? , shohin_coode = ? , shohin_lot = ? , shohin_mei= ?  , shohin_bunrui = ? , shouhin_quantity = ? ,serial_numbe = ?,torokubi = ?  WHERE shouhin_id = ?";
 
-		// SQLを実行してその結果を取得する
+		
 		int result = 0;
 		try {
-			// プリペアステートメントを取得し、実行SQLを渡す
+			
 			PreparedStatement statement = getPreparedStatement(sql);
 			statement.setString(2, dto.getShohin_coode());
 			statement.setString(3, dto.getShohin_lot());
@@ -177,10 +178,10 @@ public class TodoDAO extends DAO {
 			statement.setInt(7, dto.getSerial_number());
 			statement.setString(8, dto.getTorokubi());
 			result = statement.executeUpdate();
-			// コミットを行う
+			
 			super.commit();
 		} catch (Exception e) {
-			// 例外の場合ロールバックを行いスローした例外はデータオブジェクトから脱出する
+			
 			super.rollback();
 			throw e;
 		}

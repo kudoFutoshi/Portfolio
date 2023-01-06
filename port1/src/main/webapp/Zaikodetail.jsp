@@ -9,11 +9,6 @@
 </head>
 <body>
 <h1>在庫調整画面</h1>
-<%
-	Todo todo = (Todo)request.getAttribute("todo");
-	pageContext.setAttribute("todo", todo);
-%>
-<p>ログインユーザ：${ loginUser }</p>
 
 <form action="ZaikoRegisterServlet" method="POST">
 	<table>
@@ -31,6 +26,8 @@
 	}
 %>
 	</tr>
+	
+	
 	<tr>
 		<th>商品CD</th>
 		<td><input type="text" name="shohin_coode" value="${ todo.shohin_coode }" size="20"/></td>
