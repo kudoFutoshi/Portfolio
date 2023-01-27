@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body {
+	   width: 1124px;
+       height: 1124px;
+       margin: 40px auto 40px;
+	   background: linear-gradient(-225deg,#ffffff 0%, #ffffcb 56%, #f4f487 100%);
+       overflow: hidden;  
+  }
+  /*枠内(table)設定*/
+ thead{
+  background-color: rgb(255, 255, 255);
+ }
