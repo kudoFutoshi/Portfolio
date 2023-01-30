@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body {
+	   width: 1124px;
+       height: 1124px;
+       margin: 40px auto 40px;
+	   background: linear-gradient(#b7c6fb 5%,#ffffff 50%);
+       overflow: hidden;  
+  }
+  /*枠内(table)設定*/
+ thead{
+  background-color: rgb(255, 255, 255);
+ }
+ 
+ #header{
+ 
+ background-color:();
+ 
+ 
+ }
+ 
+ 
+ 
+ h1{
+ font-size: 250%;
+ font-family: "Century";
+ font-weight : bold;
+ }

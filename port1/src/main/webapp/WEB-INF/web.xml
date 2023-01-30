@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+  <display-name>TODO</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <session-config>
+  <session-timeout>-1</session-timeout>
+  </session-config>
+  <security-role>
+  <role-name>admin</role-name>
+  </security-role>
+  <security-role>
+  <role-name>normal</role-name>
+  </security-role>
+  <security-constraint>
+  <web-resource-collection>
+  <web-resource-name>FORM認証</web-resource-name>
+  <url-pattern>/DeleteServlet</url-pattern>
+  <url-pattern>/AllSearchServlet</url-pattern>
+  <url-pattern>/Arrival_ZaikoDetailServlet</url-pattern>
+  <url-pattern>/Arrival_ZaikoRegisterServlet</url-pattern>
+  <url-pattern>/ShohinselectServlet</url-pattern>
+  <url-pattern>/ShohinselectServlet</url-pattern>
+  <url-pattern>/Sinnki_ZaikoRegisterServlet</url-pattern>
+  <url-pattern>/ZaikoDetailServlet</url-pattern>
+  <url-pattern>/ZaikoRegisterServlet</url-pattern>
+   <url-pattern>/Top.jsp</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+  <role-name>admin</role-name>
+  <role-name>normal</role-name>
+  </auth-constraint>
+  </security-constraint>
+  <login-config>
+  <auth-method>FORM</auth-method>
+  <realm-name>DataSourceRealm</realm-name>
+ <form-login-config>
+  <form-login-page>/Login.jsp</form-login-page>
+  <form-error-page>/Login_error.jsp</form-error-page>
+ </form-login-config> 
+  </login-config>
+    
+  <servlet>
+    <description></description>
+    <display-name>AllSearchServlet</display-name>
+    <servlet-name>AllSearchServlet</servlet-name>
+    <servlet-class>todo.web.AllSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ZaikoDetailServlet</display-name>
+    <servlet-name>ZaikoDetailServlet</servlet-name>
+    <servlet-class>todo.web.ZaikoDetailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>sinnki_ZaikoDetailServlet</display-name>
+    <servlet-name>sinnki_ZaikoDetailServlet</servlet-name>
+    <servlet-class>todo.web.sinnki_ZaikoDetailServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>ZaikoRegisterServlet</display-name>
+    <servlet-name>ZaikoRegisterServlet</servlet-name>
+    <servlet-class>todo.web.ZaikoRegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>DeleteServlet</display-name>
+    <servlet-name>DeleteServlet</servlet-name>
+    <servlet-class>todo.web.DeleteServlet</servlet-class>
+  </servlet>
+  
+</web-app>
